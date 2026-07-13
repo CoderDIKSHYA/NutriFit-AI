@@ -1,0 +1,16 @@
+@import '../desktop/Auth';
+
+@media (max-width: 480px) {
+  .auth-page {
+    padding-top: 80px;
+    
+    .auth-container {
+      padding: 24px 16px;
+      margin: 0 12px;
+      
+      h2 {
+        font-size: 24px;
+      }
+    }
+  }
+}

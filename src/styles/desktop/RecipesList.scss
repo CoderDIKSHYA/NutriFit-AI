@@ -1,0 +1,124 @@
+@import '../partials/variables';
+@import '../partials/mixins';
+
+.recipes-title {
+    text-align: center;
+    color: $black;
+    font-size: $desktopHeading;
+    font-family: $raleway;
+    margin-bottom: 3rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.recipes-container {
+    width: 100%;
+    max-width: 1350px;
+    padding: 0 2rem 4rem;
+    @include flex(row, center, center);
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.recipe {
+    cursor: pointer;
+    position: relative;
+    min-width: 260px;
+    width: 260px;
+    height: 280px;
+    margin: 1rem;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(29, 34, 13, 0.05);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+    @include flex(column, stretch, flex-start);
+    overflow: hidden;
+}
+
+.recipe:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(255, 112, 65, 0.2);
+    border-color: rgba(255, 112, 65, 0.4);
+
+    .recipe-image {
+        transform: scale(1.06);
+    }
+}
+
+.recipe-image {
+    position: relative;
+    width: 100%;
+    height: 190px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, rgba(29, 34, 13, 0.1), rgba(29, 34, 13, 0.3));
+    }
+
+    .recipe-badge-container {
+        position: absolute;
+        top: 0.75rem;
+        left: 0.75rem;
+        right: 0.75rem;
+        z-index: 2;
+        @include flex(row, center, space-between);
+        gap: 0.5rem;
+
+        .recipe-badge {
+            font-size: 11px;
+            font-weight: 700;
+            font-family: $poppins;
+            padding: 0.35rem 0.6rem;
+            border-radius: 50px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+
+            i {
+                font-size: 11px;
+            }
+
+            &.time {
+                background: rgba(13, 125, 78, 0.85);
+            }
+
+            &.cal {
+                background: rgba(255, 112, 65, 0.85);
+            }
+        }
+    }
+}
+
+.recipe-title {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: #fff;
+
+    p {
+        color: $black;
+        font-family: $poppins;
+        font-size: 16px;
+        font-weight: 700;
+        text-align: center;
+        margin: 0;
+    }
+}

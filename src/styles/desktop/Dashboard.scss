@@ -1,0 +1,516 @@
+@import '../partials/variables';
+@import '../partials/mixins';
+
+/* SETUP PROFILE PAGE */
+.dashboard-setup-page {
+  min-height: calc(100vh - 100px);
+  padding: 120px 20px 60px 20px;
+  background: linear-gradient(135deg, #FFF9F6 0%, #FFF0EA 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $poppins;
+
+  .setup-container {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+    @include dropDownShadow(0.15);
+
+    h2 {
+      font-family: $raleway;
+      font-size: 26px;
+      font-weight: 700;
+      color: $black;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    p {
+      font-size: 14px;
+      color: lighten($black, 20%);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .setup-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .input-row {
+        display: flex;
+        gap: 16px;
+
+        .input-group {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+
+          label {
+            font-size: 13px;
+            font-weight: 600;
+            color: $black;
+          }
+
+          input, select {
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1.5px solid #E2E8F0;
+            background: #FFFFFF;
+            font-family: $poppins;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s ease;
+
+            &:focus {
+              border-color: $orange;
+            }
+          }
+        }
+      }
+
+      .setup-submit-btn {
+        margin-top: 10px;
+        padding: 14px;
+        border-radius: 8px;
+        background: $orange;
+        color: #FFFFFF;
+        font-size: 15px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: darken($orange, 5%);
+        }
+      }
+    }
+  }
+}
+
+/* MAIN DASHBOARD PAGE */
+.dashboard-page {
+  padding: 120px 4% 60px 4%;
+  min-height: calc(100vh - 100px);
+  background-color: #F8FAFC;
+  font-family: $poppins;
+
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 20px;
+
+    .header-info {
+      h1 {
+        font-family: $raleway;
+        font-size: 28px;
+        font-weight: 700;
+        color: $black;
+        margin: 0 0 6px 0;
+      }
+      p {
+        margin: 0;
+        color: lighten($black, 25%);
+        font-size: 14px;
+      }
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      .date-picker {
+        padding: 10px 14px;
+        border-radius: 8px;
+        border: 1.5px solid #CBD5E1;
+        font-family: $poppins;
+        font-size: 14px;
+        color: $black;
+        outline: none;
+        background-color: #FFF;
+
+        &:focus {
+          border-color: $orange;
+        }
+      }
+
+      .logout-btn {
+        padding: 10px 18px;
+        border-radius: 8px;
+        border: 1.5px solid #E2E8F0;
+        background-color: #FFF;
+        color: #EF4444;
+        font-family: $poppins;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background-color: #FEF2F2;
+          border-color: #FCA5A5;
+        }
+      }
+    }
+  }
+
+  /* Grid Layout */
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+
+    .dashboard-card {
+      background-color: #FFFFFF;
+      border-radius: 16px;
+      border: 1px solid #E2E8F0;
+      padding: 24px;
+      @include dropDownShadow(0.04);
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+
+      h3 {
+        margin: 0 0 20px 0;
+        font-family: $raleway;
+        font-size: 18px;
+        font-weight: 700;
+        color: $black;
+        border-bottom: 1.5px solid #F1F5F9;
+        padding-bottom: 10px;
+      }
+    }
+
+    /* Calorie Progress Ring/Stats */
+    .calorie-card {
+      grid-column: span 2;
+
+      .calorie-rings {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 20px 0;
+
+        .calorie-stat {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .number {
+            font-size: 32px;
+            font-weight: 700;
+            color: $black;
+
+            &.orange {
+              color: $orange;
+            }
+            &.green {
+              color: $green;
+            }
+          }
+
+          .label {
+            font-size: 12px;
+            color: #64748B;
+            font-weight: 600;
+            margin-top: 4px;
+          }
+        }
+
+        .calorie-divider {
+          font-size: 24px;
+          font-weight: 300;
+          color: #94A3B8;
+        }
+      }
+
+      .progress-bar-container {
+        height: 10px;
+        background-color: #E2E8F0;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 20px;
+
+        .progress-bar {
+          height: 100%;
+          background: linear-gradient(90deg, $orange 0%, lighten($orange, 15%) 100%);
+          border-radius: 10px;
+          transition: width 0.3s ease;
+        }
+      }
+    }
+
+    /* Hydration Card */
+    .water-card {
+      .water-tracker-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+
+        .glass-icon {
+          font-size: 48px;
+          color: #3B82F6;
+          animation: float 2s ease-in-out infinite;
+        }
+
+        .water-stat {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .water-amount {
+            font-size: 26px;
+            font-weight: 700;
+            color: $black;
+          }
+
+          .water-goal {
+            font-size: 12px;
+            color: #64748B;
+            margin-top: 4px;
+          }
+        }
+
+        .water-buttons {
+          display: flex;
+          gap: 12px;
+          width: 100%;
+
+          .water-btn {
+            flex: 1;
+            padding: 10px;
+            border-radius: 8px;
+            font-family: $poppins;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.2s ease;
+
+            &.minus {
+              background-color: #F1F5F9;
+              color: #475569;
+              &:hover {
+                background-color: #E2E8F0;
+              }
+            }
+
+            &.plus {
+              background-color: #DBEAFE;
+              color: #1E40AF;
+              &:hover {
+                background-color: #BFDBFE;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    /* Macro Card */
+    .macro-card {
+      .macro-chart-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .empty-chart {
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 13px;
+        color: #94A3B8;
+      }
+    }
+
+    /* Food Logger Card */
+    .food-logger-card {
+      grid-column: span 3;
+
+      .food-form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        background-color: #F8FAFC;
+        padding: 16px;
+        border-radius: 12px;
+        border: 1px dashed #CBD5E1;
+        margin-bottom: 20px;
+
+        .form-row {
+          display: flex;
+          gap: 12px;
+
+          input {
+            flex: 1;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1.5px solid #CBD5E1;
+            outline: none;
+            font-family: $poppins;
+            font-size: 14px;
+
+            &:focus {
+              border-color: $orange;
+            }
+          }
+
+          &.secondary {
+            display: flex;
+            align-items: center;
+            
+            input {
+              max-width: 100px;
+            }
+
+            select {
+              padding: 10px;
+              border-radius: 6px;
+              border: 1.5px solid #CBD5E1;
+              outline: none;
+              font-family: $poppins;
+              font-size: 14px;
+              background-color: #FFF;
+              flex: 1;
+            }
+
+            .add-food-btn {
+              padding: 10px 20px;
+              border-radius: 6px;
+              background-color: $green;
+              color: #FFF;
+              font-weight: 600;
+              border: none;
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              gap: 6px;
+              transition: background-color 0.2s ease;
+
+              &:hover {
+                background-color: darken($green, 5%);
+              }
+            }
+          }
+        }
+      }
+
+      .food-list-container {
+        max-height: 350px;
+        overflow-y: auto;
+
+        .diary-loader {
+          text-align: center;
+          padding: 30px;
+          color: #64748B;
+        }
+
+        .empty-diary {
+          text-align: center;
+          padding: 40px;
+          color: #94A3B8;
+          font-size: 14px;
+        }
+
+        .food-table {
+          width: 100%;
+          border-collapse: collapse;
+          text-align: left;
+
+          th {
+            padding: 12px;
+            font-weight: 600;
+            color: #475569;
+            font-size: 13px;
+            background-color: #F8FAFC;
+            border-bottom: 1.5px solid #E2E8F0;
+          }
+
+          td {
+            padding: 12px;
+            border-bottom: 1px solid #F1F5F9;
+            font-size: 14px;
+            color: $black;
+
+            &.food-name-td {
+              font-weight: 600;
+            }
+
+            &.calories-td {
+              font-weight: 700;
+              color: $orange;
+            }
+          }
+
+          .meal-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+
+            &.breakfast {
+              background-color: #E0F2FE;
+              color: #0369A1;
+            }
+            &.lunch {
+              background-color: #DCFCE7;
+              color: #15803D;
+            }
+            &.dinner {
+              background-color: #F3E8FF;
+              color: #6B21A8;
+            }
+            &.snack {
+              background-color: #FEF3C7;
+              color: #B45309;
+            }
+          }
+
+          .delete-food-btn {
+            background: none;
+            border: none;
+            color: #EF4444;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+
+            &:hover {
+              background-color: #FEE2E2;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}

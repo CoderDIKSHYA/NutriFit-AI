@@ -1,0 +1,81 @@
+@import '../desktop/Dashboard';
+
+@media (max-width: 768px) {
+  .dashboard-page {
+    padding-top: 100px;
+    
+    .dashboard-header {
+      flex-direction: column;
+      align-items: flex-start;
+      
+      .header-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+    
+    .dashboard-grid {
+      grid-template-columns: 1fr;
+      
+      .calorie-card {
+        grid-column: span 1;
+        
+        .calorie-rings {
+          flex-direction: column;
+          gap: 12px;
+          
+          .calorie-divider {
+            display: none;
+          }
+        }
+      }
+      .food-logger-card {
+        grid-column: span 1;
+        
+        .food-form {
+          .form-row {
+            flex-direction: column;
+            gap: 10px;
+            
+            &.secondary {
+              input {
+                max-width: 100%;
+              }
+            }
+          }
+        }
+        
+        .food-table {
+          thead {
+            display: none;
+          }
+          tr {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 2px solid #E2E8F0;
+            padding: 10px 0;
+          }
+          td {
+            border: none;
+            padding: 4px;
+          }
+        }
+      }
+    }
+  }
+  
+  .dashboard-setup-page {
+    padding-top: 100px;
+    
+    .setup-container {
+      padding: 24px 16px;
+      
+      .setup-form {
+        .input-row {
+          flex-direction: column;
+          gap: 12px;
+        }
+      }
+    }
+  }
+}
