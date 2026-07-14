@@ -16,10 +16,20 @@ const app = express();
 // Security Middleware
 app.use(helmet());
 
-// CORS configuration - allowing local dev frontends on ports 3000, 5173, etc.
+// CORS configuration - allowing local dev frontends and production URL
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:5173',
+  'http://localhost:8000'
+];
+
+if (process.env.FRONTEND_URL) {
+  allowedOrigins.push(process.env.FRONTEND_URL);
+}
+
 app.use(
   cors({
-    origin: ['http://localhost:3000', 'http://localhost:5173', 'http://localhost:8000'],
+    origin: allowedOrigins,
     credentials: true
   })
 );
