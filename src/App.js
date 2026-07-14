@@ -1,6 +1,7 @@
 import './App.scss';
 import { BrowserRouter } from 'react-router-dom';
 import Pages from './components/Pages';
+import AICoach from './components/nested-components/AICoach';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
@@ -32,6 +33,7 @@ const App = () => {
                 
                 <Header scroll={scroll} isMenuOpened={isMenuOpened} setIsMenuOpened={setIsMenuOpened} />
                 <Pages />
+                <AICoach />
                 <Footer setIsMenuOpened={setIsMenuOpened} />
                 
                 {showLoadingScreen && <LoadingScreen />}
