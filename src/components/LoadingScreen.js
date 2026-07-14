@@ -17,7 +17,7 @@ const LoadingScreen = () => {
 const Screen = () => {
   return (
     <div className="loading-screen" >
-      <h1>FoodFinder</h1>
+      <h1>NutriFit-AI</h1>
     </div >
   )
 }

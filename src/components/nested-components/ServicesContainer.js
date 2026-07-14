@@ -2,13 +2,13 @@ import RecipesServiceImage from '../../utils/images/services-recipes-img.png';
 import CaloriesServiceImage from '../../utils/images/services-calories-img.png';
 import { Link } from 'react-router-dom';
 
-const SERVICE_ALT = "FoodFinder Services";
+const SERVICE_ALT = "NutriFit-AI Services";
 
 const Services = () => {
     return (
         <div className="services-container">
             <Service
-                description="Find the best meal for you and its recipes from FoodFinder's list of recommended meals or search for a recipe of your choice."
+                description="Find the best meal for you and its recipes from NutriFit-AI's list of recommended meals or search for a recipe of your choice."
                 path="Recipes"
                 text="Find a Recipe"
                 buttonIcon="fa-solid fa-bowl-rice"
